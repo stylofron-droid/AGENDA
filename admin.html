@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel | Tia Mari</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         PAINEL
+    =============================== -->
+
+    <header class="admin-header">
+
+        <div>
+            <h1>Painel da Tia Mari</h1>
+            <p>Gerenciamento de agendamentos</p>
+        </div>
+
+        <button id="btnSair" class="btn-sair">
+            Sair
+        </button>
+
+    </header>
+
+
+    <main class="admin-container">
+
+        <!-- ==============================
+             CARDS
+        =============================== -->
+
+        <section class="cards">
+
+            <div class="card">
+                <span class="card-icon">📅</span>
+
+                <div>
+                    <span class="card-label">Total</span>
+                    <strong id="totalAgendamentos">0</strong>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <span class="card-icon">⏳</span>
+
+                <div>
+                    <span class="card-label">Pendentes</span>
+                    <strong id="pendentes">0</strong>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <span class="card-icon">✅</span>
+
+                <div>
+                    <span class="card-label">Confirmados</span>
+                    <strong id="confirmados">0</strong>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <span class="card-icon">❌</span>
+
+                <div>
+                    <span class="card-label">Cancelados</span>
+                    <strong id="cancelados">0</strong>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             AGENDAMENTOS
+        =============================== -->
+
+        <section class="agenda-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Agendamentos</h2>
+                    <p>Solicitações recebidas pelo site</p>
+                </div>
+
+                <button id="btnAtualizar" class="btn-atualizar">
+                    ↻ Atualizar
+                </button>
+
+            </div>
+
+            <!-- ==============================
+     BUSCA
+============================== -->
+
+<div class="busca-container">
+
+    <span class="busca-icone">🔎</span>
+
+    <input
+        type="search"
+        id="campoBusca"
+        class="campo-busca"
+        placeholder="Pesquisar por nome, WhatsApp, serviço ou evento..."
+        autocomplete="off"
+    >
+
+    <button
+        type="button"
+        id="limparBusca"
+        class="limpar-busca"
+        aria-label="Limpar busca"
+    >
+        ×
+    </button>
+
+</div>
+
+            <!-- Filtros -->
+
+            <div class="filtros">
+
+                <button class="filtro ativo" data-status="todos">
+                    Todos
+                </button>
+
+                <button class="filtro" data-status="pendente">
+                    Pendentes
+                </button>
+
+                <button class="filtro" data-status="confirmado">
+                    Confirmados
+                </button>
+
+                <button class="filtro" data-status="cancelado">
+                    Cancelados
+                </button>
+
+            </div>
+
+
+            <!-- Lista -->
+
+            <div id="listaAgendamentos" class="lista-agendamentos">
+
+                <div class="carregando">
+                    Carregando agendamentos...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         MODAL
+    =============================== -->
+
+    <div id="modalDetalhes" class="modal">
+
+        <div class="modal-content">
+
+            <button id="fecharModal" class="fechar">
+                ×
+            </button>
+
+            <h2>Detalhes do agendamento</h2>
+
+            <div id="detalhesAgendamento"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
